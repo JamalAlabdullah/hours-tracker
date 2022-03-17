@@ -14,9 +14,9 @@ class App extends Component {
         <NavBar />
         <main className= "content">
           <Switch>
-          <Route path="/" component={LoginForm}/>
-          <Route path="/registerForm" component={RegisterForm}/>
-          <Route path="/not-found" component={NotFound}/>
+          <Route path="/" exact component={LoginForm}/>
+          <Route path="/registerForm" exact component={RegisterForm}/>
+          <Route path="/not-found" exact component={NotFound}/>
           <Route path="/home" exact component={Home}/>
           <Redirect to="/not-found"/>
           </Switch>

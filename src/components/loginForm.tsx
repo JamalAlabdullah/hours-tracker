@@ -1,20 +1,21 @@
 import { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, withRouter } from "react-router-dom";
 import login from "../auth/auth";
 
-const Evaluate = (props:any) => {
+
+const Evaluate = withRouter((props:any) => {
   const isLoggedIn = props.isLoggedIn;
   if (isLoggedIn) {
-    return <Redirect to="/home" />
+    return props.history.push('/home');
   }
   return <label>{props.reason}</label>
-}
+})
 
 class LoginForm extends Component <any, any> {
   constructor(props:any) {
     super(props);
     this.state = {
-      isLoggedIn: true,
+      isLoggedIn: false,
       reason: ""
     };
   }
