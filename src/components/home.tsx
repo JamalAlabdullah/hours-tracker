@@ -1,15 +1,17 @@
 import React from "react";
+import { Container, Row, Col } from 'react-bootstrap';
 
 import Hour from "./hour/hour";
 import Hours from "./hour/hours";
 
 const Home = () => {
   return (
-  <div>
-      <h1>Home</h1>
-      <Hour />  
-      <Hours />  
-  </div>
+  <Container fluid>
+    <Row>
+      <Col><Hour />  </Col>
+      <Col><Hours />  </Col>
+    </Row>
+  </Container>
   );
 };
 
