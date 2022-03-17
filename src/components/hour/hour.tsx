@@ -1,6 +1,6 @@
-import React from "react";
 import HourModel  from "../../models/hour";
 import styled from 'styled-components';
+
 
 
 
@@ -26,12 +26,29 @@ const Styles = styled.div`
 `
 
 
-const Hour = () => {
+const Hour = (props: any) => {
   return (
 
   <Styles>  
   <div className="form">
-      <form className="container" onSubmit={save}>
+      <form className="container" onSubmit={(event:any) => {
+        
+          event.preventDefault();
+          const desciption = event.target.descnName.value;
+          const customer  = event.target.cusName.value;
+          const projectName  = event.target.projName.value;
+          const comment  = event.target.commName.value;
+          const data  = event.target.date.value;
+          const hours  = event.target.hours.value;
+
+          
+        const hour = new HourModel(desciption, customer, projectName, comment, data, hours);
+        
+        // call save on them 
+
+        hour.save();
+        props.handleSave()
+      }}>
         <div className="input-container">
           <label>Description</label>
           <input type="text" name="descnName" required /> 
@@ -71,23 +88,3 @@ const Hour = () => {
 
 export default Hour;
 
-
-const save = (event: any) => {
-    // fetch values from form  
-    // pass them to the new method 
-
-    event.preventDefault();
-    const desciption = event.target.descnName.value;
-    const customer  = event.target.cusName.value;
-    const projectName  = event.target.projName.value;
-    const comment  = event.target.commName.value;
-    const data  = event.target.date.value;
-    const hours  = event.target.hours.value;
-
-    
-   const hour = new HourModel(desciption, customer, projectName, comment, data, hours);
-   
-   // call save on them 
-
-   hour.save();
-}

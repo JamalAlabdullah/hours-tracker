@@ -1,4 +1,3 @@
-import{ useState, useEffect } from "react";
 import { useTable } from 'react-table';
 import styled from 'styled-components';
 
@@ -33,29 +32,30 @@ const cols  = [      {
   ],
 },]
 
-const Hours = () => {
-    const [hours, setHours] = useState([]);
-    useEffect(() => {
-        fetchHoursFromLS(setHours);
-      }, []);
-    return ( <
-      div>
-       <Styles>
-        <Table columns={cols} data={hours} />
-       </Styles>
 
+
+const LoadSpinner = () => (
+  <div> Loading data .... </div>
+);
+
+const Hours = (props: any) => {
+    const hours = props.hours;
+    const loading = props.loading;
+    if(loading) {
+      return <LoadSpinner />
+    } else {
+    return ( 
+      <div>
+      { hours.length > 0 ?   
+        <Styles> <Table columns={cols} data={hours} /> </Styles> : <h1>No Hours entry yet! </h1>
+      }
       </div> 
       )   
+    }
 };
 
 
 export default Hours;
-
-
-const fetchHoursFromLS: any = (setHours: Function) => {
-    const hours = JSON.parse(localStorage.hours);
-    setHours(hours);
-}
 
 
 

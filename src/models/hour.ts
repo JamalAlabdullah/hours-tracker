@@ -25,12 +25,13 @@ export default class HourModel {
           "date": this.date,
           "hours": this.hours
         }
-
-        let hours = JSON.parse(localStorage.hours);
-        if (hours.length > 0) {
-          hours.push(hour);
-        }
-        localStorage.setItem('hours', JSON.stringify(hours));
+        if (localStorage.hours !== "undefined") {
+          let hours = JSON.parse(localStorage.hours);
+          if (hours.length >= 0) {
+            hours.push(hour);
+          }
+          localStorage.setItem('hours', JSON.stringify(hours));
+      }
     }
 
   }
