@@ -49,3 +49,5 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 - Improve UI and UX
 - Build the missing functionality
+- Add validation to inputs in hours entry
+- Show  in Date felt to choose the date

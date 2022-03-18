@@ -28,9 +28,9 @@ const fetchHoursFromLS: any = (setHours: Function, setLoading: Function) => {
   setLoading(true);
   setTimeout(()=> {
   let hours = [];
-  if (localStorage.hours !== "undefined") {
+  if (typeof localStorage.hours !== "undefined") {
     hours = JSON.parse(localStorage.hours);
-  }
+  } 
   setHours(hours);
   setLoading(false);
 }, 800);

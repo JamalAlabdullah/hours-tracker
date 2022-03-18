@@ -42,7 +42,7 @@ const Hour = (props: any) => {
           const hours  = event.target.hours.value;
 
           
-        const hour = new HourModel(desciption, customer, projectName, comment, data, hours);
+        const hour = new HourModel(desciption, customer, projectName, hours,  data,comment );
         
         // call save on them 
 
@@ -62,16 +62,16 @@ const Hour = (props: any) => {
           <input type="text" name="projName" required />
         </div>
         <div className="input-container">
-          <label>Comment</label>
-          <input type="text" name="commName" required />
+          <label>Hours</label>
+          <input type="text" name="hours" required />
         </div>
         <div className="input-container">
           <label>Date</label>
           <input type="text" name="date" required />
         </div>
         <div className="input-container">
-          <label>Hours</label>
-          <input type="text" name="hours" required />
+          <label>Comment</label>
+          <input type="text" name="commName" required />
         </div>
 
         <div >
